@@ -1,9 +1,9 @@
 package org.example;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-
-import javax.swing.*;
 
 /**
  * Hello world!
@@ -11,9 +11,21 @@ import javax.swing.*;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        new Actions(new ChromeDriver());
-        System.out.println( "Hello World!" );
+    public static void main( String[] args ) throws InterruptedException {
+       System.setProperty("webdriver.chrome.driver", "/Users/maximagarin/Desktop/Driver/chromedriver");
+        WebDriver driver = new ChromeDriver();
+       //WebDriver driver = WebDriverManager.chromedriver().create();
+        driver.get("https://www.proskater.ru/");
+        driver.manage().window().maximize();
+
+
+        WebElement enter = driver.findElement(By.xpath("//a[@class='login-btn']"));
+        driver.quit();
+
+
+
+
+
+
     }
 }
